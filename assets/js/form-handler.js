@@ -60,6 +60,7 @@ function ajax(method, url, data, success, error) {
       el.textContent = "Copy";
     }, 1000);
   }
+  
 
   function selectText(node) {
     var selection = window.getSelection();
