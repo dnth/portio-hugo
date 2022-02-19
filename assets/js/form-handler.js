@@ -98,6 +98,3 @@ function ajax(method, url, data, success, error) {
   var highlightBlocks = document.getElementsByClassName('highlight');
   Array.prototype.forEach.call(highlightBlocks, addCopyButton);
 })();
-
-
-
