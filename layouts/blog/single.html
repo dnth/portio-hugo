@@ -27,16 +27,23 @@
       {{ if .Params.tags }}
       <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
         <i class="fa fa-tag"></i> &ensp;
-        {{ range (.GetTerms "tags") }}
-        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>;
+        {{ range $elem_index, $elem_val := (.GetTerms "tags") }}
+        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a> 
+        {{ if lt $elem_index (sub (len $.Params.tags) 1)}}
+        <span class="separator">•</span>
+        {{ end }}
+
         {{ end }}
       </div>
       {{ end }}
       {{ if .Params.categories }}
       <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
         <i class="fa fa-folder-open"></i> &ensp;
-        {{ range (.GetTerms "categories") }}
-        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>;
+        {{ range $elem_index, $elem_val := (.GetTerms "categories") }}
+        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        {{ if lt $elem_index (sub (len $.Params.categories) 1)}}
+        <span class="separator">•</span>
+        {{ end }}
         {{ end }}
       </div>
       {{ end }}
