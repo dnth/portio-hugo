@@ -38,7 +38,7 @@
       {{ end }}
       {{ if .Params.categories }}
       <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
-        <i class="fa fa-folder-open"></i> &ensp;
+        <i class="fa fa-folder"></i> &ensp;
         {{ range $elem_index, $elem_val := (.GetTerms "categories") }}
         <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
         {{ if lt $elem_index (sub (len $.Params.categories) 1)}}
