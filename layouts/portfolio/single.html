@@ -1,10 +1,62 @@
 {{ define "main" }}
 
-<section class="section case-details">
+<header class="breadCrumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
+        <h3 class="breadCrumb__title">{{ .Title }}</h3>
+        <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+          <ol class="breadcrumb align-items-center">
+            <li class="breadcrumb-item"><a href={{ .Site.BaseURL }}>Home</a></li>
+            <li class="breadcrumb-item"><a href={{ .Site.Params.portfolioPageURL | absURL }}>All Works</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row p-3">
+      <div class="col-lg-10 col-md-10 offset-lg-1 offset-md-0 text-center">
+        <i class="fa fa-calendar"></i> &ensp;
+        {{ .PublishDate.Format "January 2, 2006" }} &ensp; &ensp;
+        <i class="fa fa-clock-o"></i> &ensp;
+        {{ .ReadingTime }} mins read
+      </div>
+      {{ if .Params.tags }}
+      <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
+        <i class="fa fa-tag"></i> &ensp;
+        {{ range $elem_index, $elem_val := (.GetTerms "tags") }}
+        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a> 
+        {{ if lt $elem_index (sub (len $.Params.tags) 1)}}
+        <span class="separator">•</span>
+        {{ end }}
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ if .Params.categories }}
+      <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
+        <i class="fa fa-folder"></i> &ensp;
+        {{ range $elem_index, $elem_val := (.GetTerms "categories") }}
+        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        {{ if lt $elem_index (sub (len $.Params.categories) 1)}}
+        <span class="separator">•</span>
+        {{ end }}
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</header>
+
+<section class="section singleBlog">
   <div class="svg-img">
-    <img src="{{ "images/hero/figure-svg.svg" | absURL }}" alt="" />
+    <img src={{ "images/hero/figure-svg.svg" | absURL }} alt="">
   </div>
   <div class="animate-shape">
+    <img src={{ "images/skill/skill-background-shape.svg" | absURL }} alt="">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600">
       <defs>
         <linearGradient id="d" x1="0.929" y1="0.111" x2="0.263" y2="0.935" gradientUnits="objectBoundingBox">
@@ -19,115 +71,30 @@
     </svg>
   </div>
   <div class="animate-pattern">
-    <img src="{{ "images/service/background-pattern.svg" | absURL }}" alt="background-shape" />
+    <img src={{ "images/service/background-pattern.svg" | absURL }} alt="background-shape">
   </div>
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-lg-10 offset-lg-1 text-center">
-        <div class="case-details-title">
-          <h1>{{ .Title }}</h1>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="singleBlog__feature">
+          <img src={{ .Params.postImage | absURL }} alt="feature-image">
         </div>
-        <p>
-          {{ .Params.shortDescription }}
-        </p>
-        <div class="case-details-info">
-          <div class="case-details-info-item">
-            <h5 class="text-light">Client</h5>
-            <p>{{ .Params.client }}</p>
-          </div>
-          <div class="case-details-info-item">
-            <h5>Service</h5>
-            <p>{{ .Params.service }}</p>
-          </div>
-          <div class="case-details-info-item">
-            <h5>Date</h5>
-            <p>{{ .PublishDate.Format "January 2, 2006" }}</p>
-          </div>
-        </div>
-        <div class="row mb-5">
-          <div class="col-lg-6">
-            <div class="case-details-service">
-              <h3>Challenge</h3>
-              <p>
-                {{ .Params.challenge }}
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="case-details-service">
-              <h3>Solution</h3>
-              <p>
-                {{ .Params.solution }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="case-details-thumb mb-5">
-          <img src="{{ .Params.thumbnail | absURL }}" alt="case-details" />
-        </div>
-        {{ .Content }}
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <nav class="case-details-nav d-flex justify-content-between align-items-center">
-          {{ if .PrevInSection }}
-          <div class="previous d-flex align-items-center">
-            <div class="icon mr-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15.556" height="28.285" viewBox="0 0 15.556 28.285">
-                <g data-name="Group 1243" fill="#2d2d2d">
-                  <path data-name="Path 1456" d="M3.391 12.728l9.75 14.142-.982 1.414-9.742-14.142z" />
-                  <path data-name="Path 1455" d="M13.137 1.41L3.39 15.558l-.975-1.415L12.166 0z" />
-                </g>
-              </svg>
-            </div>
-            <div class="content">
-              <span class="small">Prev case</span>
-              <h5 class="title"><a class="text-dark"
-                  href="{{ .PrevInSection.Permalink }}">{{ .PrevInSection.Title }}</a></h5>
-            </div>
-          </div>
+    <div class="row mt-5">
+      <div class="col-lg-12">
+        <div class="singleBlog__content">
+
+          {{ if .Params.toc }}
+          <h3>Table of Contents</h3>
+          {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" |  safeHTML }}
           {{ end }}
-          <div class="social">
-            {{ $url := printf "%s" .Permalink | absLangURL }}
-            <ul class="unstyle-list big">
-              <li>
-                <a href=" https://www.facebook.com/sharer/sharer.php?u={{ $url }}"><i
-                    class="fa fa-facebook-official btn-zoom"></i></a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $url }}"><i
-                    class="fa fa-linkedin-square btn-zoom"></i></a>
-              </li>
-              <li>
-                <a href="https://twitter.com/intent/tweet?&url={{ $url }}"><i
-                    class="fa fa-twitter-square btn-zoom"></i></a>
-              </li>
-            </ul>
-          </div>
-          {{ if .NextInSection }}
-          <div class="next d-flex align-items-center">
-            <div class=" content text-right">
-              <span class="small">Next case</span>
-              <h5 class="title">
-                <a class="text-dark" href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }}</a>
-              </h5>
-            </div>
-            <div class="icon ml-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15.556" height="28.285" viewBox="0 0 15.556 28.285">
-                <g data-name="Group 1244" fill="#2d2d2d">
-                  <path data-name="Path 1456" d="M12.162 12.725L2.416 26.87l.978 1.41 9.746-14.138z" />
-                  <path data-name="Path 1455" d="M2.416 1.415l9.743 14.141.975-1.414L3.39 0z" />
-                </g>
-              </svg>
-            </div>
-          </div>
-          {{ end }}
-        </nav>
+          {{ .Content }}
+          {{ partial "socialshare.html" . }}
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 
 {{ end }}
