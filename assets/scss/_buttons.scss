@@ -90,7 +90,7 @@ Button Override
  
 .social-share .share-btn {
 	padding: 0.25em;
-	width: 3em;
+	width: 10em;
 }
  
 .social-share-nav .share-btn h3{
@@ -167,6 +167,7 @@ ul.share-icons li > * .label {
 .share-btn.reddit      { background: #ff5700; }
 .share-btn.email       { background: #444444; }
 .share-btn.whatsapp    { background: #25d366; }
+.share-btn.github      { background: #000000; }
 
 
 .share-btn.twitter:hover     { background: #4c9ad6; }
