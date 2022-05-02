@@ -41,6 +41,40 @@
             <img src="images/hero/figure-svg.svg" alt="figure-svg" />
           </div>
           <img src="{{ .image | absURL }}" alt="hero-image" style='-webkit-mask: url({{"images/hero/hero-mask-svg.png" | absURL }});-webkit-mask-repeat: no-repeat;-webkit-mask-size: contain;-webkit-mask-position: center center;'/>
+          
+          <section class="social-share">
+
+          <div>
+              <ul class="share-icons">
+                <li>
+                  <a href="https://twitter.com/dicksonneoh7" target="_blank"
+                      rel="noopener" aria-label="Connect on Twitter" class="share-btn twitter">
+                      {{ partial "svg/twitter_white.svg" (dict "class" "widget-social__link-icon") }}&nbsp;
+                      Twitter
+                  </a>
+                </li>
+
+                <li>
+                  <a href="https://www.linkedin.com/in/dickson-neoh/"
+                      target="_blank" rel="noopener" aria-label="Connect on LinkedIn" class="share-btn linkedin">
+                      {{ partial "svg/linkedin_white.svg" (dict "class" "widget-social__link-icon") }}&nbsp;
+                      LinkedIn
+                  </a>
+                </li>
+
+                <li>
+                  <a href="https://github.com/dnth/"
+                      target="_blank" rel="noopener" aria-label="Connect on GitHub" class="share-btn github">
+                      {{ partial "svg/github-icon_white.svg" (dict "class" "widget-social__link-icon") }}&nbsp;
+                      GitHub
+                  </a>
+                </li>
+            </ul>
+          </div>
+
+        </section>
+
+
           {{ if .videoURL }}
           <div class="hero_figure-popup">
             <div class="thumb">
