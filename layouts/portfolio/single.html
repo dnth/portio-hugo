@@ -125,19 +125,35 @@
             </div>
             <div class="content">
               <span class="small">Prev blog</span>
-              <h5 class="title"><a class="text-dark"
-                  href="{{ .PrevInSection.Permalink }}">{{ .PrevInSection.Title }}</a></h5>
+              <div class="col-lg-9">
+                <div class="blog-page__item">
+                  <div class="blog-page__item-thumb">
+                    <a href="{{ .PrevInSection.Permalink }}">
+                      <img src="{{ .PrevInSection.Params.featureImage | absURL }}" alt="post-image">
+                    </a>
+                  </div>
+                  <h5 class="title"><a class="text-dark"
+                    href="{{ .PrevInSection.Permalink }}">{{ .PrevInSection.Title }}</a></h5>
+                </div>
+              </div>
             </div>
           </div>
           {{ end }}
           {{ if .NextInSection }}
-          <div class="px-4 bg-primary"></div>
-          <div class="next d-flex align-items-center">
-            <div class=" content text-right">
+          <div class="previous d-flex align-items-center">
+          <div class="content" align="right">
               <span class="small">Next blog</span>
-              <h5 class="title">
-                <a class="text-dark" href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }}</a>
-              </h5>
+              <div class="col-lg-9" align="right">
+                <div class="blog-page__item">
+                  <div class="blog-page__item-thumb">
+                    <a href="{{ .NextInSection.Permalink }}">
+                      <img src="{{ .NextInSection.Params.featureImage | absURL }}" alt="post-image">
+                    </a>
+                  </div>
+                  <h5 class="title"><a class="text-dark"
+                    href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }}</a></h5>
+                </div>
+              </div>
             </div>
             <div class="icon ml-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="15.556" height="28.285" viewBox="0 0 15.556 28.285">
