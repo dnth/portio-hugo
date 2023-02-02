@@ -52,7 +52,7 @@ url = "#"
 weight = 3
 [[menu.sitemap]]
 name = "Latest Article"
-url = "#"
+url = "#portfolio"
 weight = 4
 
 [params]
