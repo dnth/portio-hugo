@@ -1,0 +1,70 @@
+// Blog Navigation
+.blog-nav-item {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+}
+
+.blog-nav-thumb {
+  width: 160px;
+  height: 204px;
+  flex-shrink: 0;
+  margin-right: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.blog-nav-item .title {
+  font-size: 14px;
+  margin: 0;
+}
+
+.next {
+  .blog-nav-item {
+    flex-direction: row-reverse;
+    margin-left: auto;
+  }
+
+  .blog-nav-thumb {
+    margin-right: 0;
+    margin-left: 15px;
+  }
+}
+
+// Case Details Navigation
+.case-details-nav {
+  .previous, .next {
+    max-width: 300px;
+  }
+
+  .next {
+    text-align: right;
+  }
+
+  .blog-nav-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-nav-thumb {
+    width: 240px;
+    height: 306px;
+    margin-bottom: 10px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .title {
+    font-size: 20px; 
+    margin: 0;
+    line-height: 1.4; 
+  }
+}
