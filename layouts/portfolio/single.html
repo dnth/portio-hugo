@@ -23,43 +23,30 @@
         {{ .ReadingTime }} mins read
       </div>
       {{ if .Params.tags }}
-      <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
-        <i class="fa fa-tag"></i> &ensp;
-        {{ range $elem_index, $elem_val := (.GetTerms "tags") }}
-        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a> 
-        {{ if lt $elem_index (sub (len $.Params.tags) 1)}}
-        <span class="separator">•</span>
-        {{ end }}
-        {{ end }}
-      </div>
+        <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
+          <i class="fa fa-tag"></i> &ensp;
+          {{ range $elem_index, $elem_val := (.GetTerms "tags") }}
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a> 
+            {{ if lt $elem_index (sub (len $.Params.tags) 1)}}
+              <span class="separator">•</span>
+            {{ end }}
+          {{ end }}
+        </div>
       {{ end }}
       {{ if .Params.categories }}
-      <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
-        <i class="fa fa-folder"></i> &ensp;
-        {{ range $elem_index, $elem_val := (.GetTerms "categories") }}
-        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-        {{ if lt $elem_index (sub (len $.Params.categories) 1)}}
-        <span class="separator">•</span>
-        
-        {{ end }}
-        
-        {{ end }}
-      
+        <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
+          <i class="fa fa-folder"></i> &ensp;
+          {{ range $elem_index, $elem_val := (.GetTerms "categories") }}
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            {{ if lt $elem_index (sub (len $.Params.categories) 1)}}
+              <span class="separator">•</span>
+            {{ end }}
+          {{ end }}
+        </div>
       {{ end }}
-      
     </div>
-    
   </div>
-  
-  </div>
-  
-  </div>
-  
-  </div>
-  
 </header>
-
-
 
 <section class="section singleBlog">
   <div class="svg-img">
@@ -84,7 +71,6 @@
     <img src={{ "images/service/background-pattern.svg" | absURL }} alt="background-shape">
   </div>
   <div class="container">
-    
     <div class="row">
       <div class="col-lg-12">
         <div class="singleBlog__feature">
@@ -97,16 +83,13 @@
         <div class="singleBlog__content">
           <hr>
           {{ if .Params.toc }}
-          <h3>Table of Contents</h3>
-          {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" |  safeHTML }}
+            <h3>Table of Contents</h3>
+            {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" |  safeHTML }}
           {{ end }}
           <hr>
           {{ .Content }}
           {{ partial "socialshare.html" . }}
         </div>
-
-        
-        
       </div>
     </div>
 
@@ -114,57 +97,55 @@
       <div class="col-lg-10 offset-lg-1">
         <nav class="case-details-nav d-flex justify-content-between align-items-start">
           {{ if .PrevInSection }}
-          <div class="previous">
-            <div class="d-flex align-items-center mb-3">
-              <div class="icon mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15.556" height="28.285" viewBox="0 0 15.556 28.285">
-                  <g data-name="Group 1243" fill="#2d2d2d">
-                    <path data-name="Path 1456" d="M3.391 12.728l9.75 14.142-.982 1.414-9.742-14.142z" />
-                    <path data-name="Path 1455" d="M13.137 1.41L3.39 15.558l-.975-1.415L12.166 0z" />
-                  </g>
-                </svg>
+            <div class="previous">
+              <div class="d-flex align-items-center mb-3">
+                <div class="icon mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15.556" height="28.285" viewBox="0 0 15.556 28.285">
+                    <g data-name="Group 1243" fill="#2d2d2d">
+                      <path data-name="Path 1456" d="M3.391 12.728l9.75 14.142-.982 1.414-9.742-14.142z" />
+                      <path data-name="Path 1455" d="M13.137 1.41L3.39 15.558l-.975-1.415L12.166 0z" />
+                    </g>
+                  </svg>
+                </div>
+                <span class="small">Prev blog</span>
               </div>
-              <span class="small">Prev blog</span>
-            </div>
-            <div class="blog-nav-item">
-              <div class="blog-nav-thumb">
-                <a href="{{ .PrevInSection.Permalink }}">
-                  <img src="{{ .PrevInSection.Params.featureImage | absURL }}" alt="post-image">
-                </a>
+              <div class="blog-nav-item">
+                <div class="blog-nav-thumb">
+                  <a href="{{ .PrevInSection.Permalink }}">
+                    <img src="{{ .PrevInSection.Params.featureImage | absURL }}" alt="post-image">
+                  </a>
+                </div>
+                <h5 class="title"><a class="text-dark" href="{{ .PrevInSection.Permalink }}">{{ .PrevInSection.Title }}</a></h5>
               </div>
-              <h5 class="title"><a class="text-dark" href="{{ .PrevInSection.Permalink }}">{{ .PrevInSection.Title }}</a></h5>
             </div>
-          </div>
           {{ end }}
           {{ if .NextInSection }}
-          <div class="next">
-            <div class="d-flex align-items-center justify-content-end mb-3">
-              <span class="small">Next blog</span>
-              <div class="icon ml-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15.556" height="28.285" viewBox="0 0 15.556 28.285">
-                  <g data-name="Group 1244" fill="#2d2d2d">
-                    <path data-name="Path 1456" d="M12.162 12.725L2.416 26.87l.978 1.41 9.746-14.138z" />
-                    <path data-name="Path 1455" d="M2.416 1.415l9.743 14.141.975-1.414L3.39 0z" />
-                  </g>
-                </svg>
+            <div class="next">
+              <div class="d-flex align-items-center justify-content-end mb-3">
+                <span class="small">Next blog</span>
+                <div class="icon ml-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15.556" height="28.285" viewBox="0 0 15.556 28.285">
+                    <g data-name="Group 1244" fill="#2d2d2d">
+                      <path data-name="Path 1456" d="M12.162 12.725L2.416 26.87l.978 1.41 9.746-14.138z" />
+                      <path data-name="Path 1455" d="M2.416 1.415l9.743 14.141.975-1.414L3.39 0z" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="blog-nav-item">
+                <div class="blog-nav-thumb">
+                  <a href="{{ .NextInSection.Permalink }}">
+                    <img src="{{ .NextInSection.Params.featureImage | absURL }}" alt="post-image">
+                  </a>
+                </div>
+                <h5 class="title"><a class="text-dark" href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }}</a></h5>
               </div>
             </div>
-            <div class="blog-nav-item">
-              <div class="blog-nav-thumb">
-                <a href="{{ .NextInSection.Permalink }}">
-                  <img src="{{ .NextInSection.Params.featureImage | absURL }}" alt="post-image">
-                </a>
-              </div>
-              <h5 class="title"><a class="text-dark" href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }}</a></h5>
-            </div>
-          </div>
           {{ end }}
         </nav>
       </div>
     </div>
   </div>
-  
 </section>
-
 
 {{ end }}
