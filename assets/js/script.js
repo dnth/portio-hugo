@@ -160,14 +160,19 @@ $(document).ready(function () {
   });
 
   // Modal Popup
-  $(".popup-button").magnificPopup({
-    disableOn: 700,
-    type: "iframe",
-    mainClass: "mfp-fade",
-    removalDelay: 160,
-    preloader: false,
-
-    fixedContentPos: false,
+  $('.image-popup').magnificPopup({
+    type: 'image',
+    closeOnContentClick: true,
+    closeBtnInside: false,
+    fixedContentPos: true,
+    mainClass: 'mfp-no-margins mfp-with-zoom',
+    image: {
+      verticalFit: true
+    },
+    zoom: {
+      enabled: true,
+      duration: 300
+    }
   });
 
   var portfolioGrid = $(".portfolio-item-grid").masonry({
