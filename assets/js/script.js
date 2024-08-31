@@ -87,11 +87,13 @@ $(document).ready(function () {
 
   // service slider
   $(".service__slider").slick({
-    infinite: false,
+    infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     dots: false,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 992,
