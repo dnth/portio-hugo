@@ -67,16 +67,16 @@ $(document).ready(function () {
   });
 
   // Smooth scrolling
-  var scrollLink = $(".scroll");
+  var scrollLink = $('.scroll, .toc-link');
   scrollLink.click(function (e) {
     let elem = $(this.hash);
     if (elem.length) {
       e.preventDefault();
-      $("body,html").animate(
+      $('html, body').animate(
         {
-          scrollTop: elem.offset().top,
+          scrollTop: elem.offset().top - 120, // Offset by 100px to account for fixed header
         },
-        1000
+        800 // Animation duration in milliseconds
       );
     }
   });
