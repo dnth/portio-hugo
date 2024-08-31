@@ -1,17 +1,27 @@
 {{ define "main" }}
 
-<header class="breadCrumb">
+<section class="section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-10 col-md-12 offset-lg-1 offset-md-0 text-center">
-        <h1>404 - Page Not Found</h1>
-        <p>We're sorry, the page you requested could not be found. Please check the URL and try again, or use the
-          navigation menu to find what you're looking for.</p>
-        <nav aria-label="breadcrumb" class="d-flex justify-content-center">
-        </nav>
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <h1>404 Page Not Found</h1>
+        <p class="mb-5">The page you are looking for doesn't exist or has been moved.</p>
+        <a href="{{ .Site.BaseURL | relLangURL }}" class="btn btn-primary">Back to home</a>
+        
+        <div class="mt-5">
+          <a href="https://api.whatsapp.com/send?phone=60133250827" rel="noopener" target="_blank" class="btn btn-light btn-zoom mr-3 mb-3">
+            <i class="fa fa-whatsapp"></i>&nbsp;&nbsp;Chat on WhatsApp
+          </a>
+          <a href="https://t.me/dicksonneoh" rel="noopener" target="_blank" class="btn btn-light btn-zoom mr-3 mb-3">
+            <i class="fa fa-telegram"></i>&nbsp;&nbsp;Chat on Telegram
+          </a>
+          <a class="btn btn-light btn-zoom mb-3" href="{{ .Site.Params.contactLink | absURL }}">
+            <i class="fa fa-envelope"></i>&nbsp;&nbsp;Send me a message
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</header>
+</section>
 
 {{ end }}
