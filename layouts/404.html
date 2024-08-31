@@ -12,4 +12,27 @@
   </div>
 </section>
 
+<section class="section blog-page">
+  <div class="container">
+    <h2 class="text-center mb-5">Check out my latest projects</h2>
+    <div class="row">
+      {{ range first 3 (where .Site.RegularPages "Type" "portfolio") }}
+      <div class="col-lg-4">
+        <div class="blog-page__item">
+          <div class="blog-page__item-thumb">
+            <a href="{{ .Permalink }}">
+              <img src="{{ .Params.featureImage | absURL }}" alt="post-image">
+            </a>
+          </div>
+          <span class="small">{{ .PublishDate.Format "January 2, 2006" }}</span>
+          <h5 class="mb-0">
+            <a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
+          </h5>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
 {{ end }}
