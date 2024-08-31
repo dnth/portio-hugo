@@ -85,6 +85,10 @@
           {{ if .Params.toc }}
             <h3>Table of Contents</h3>
             {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" |  safeHTML }}
+            <div class="floating-toc">
+              <h3>Table of Contents</h3>
+              {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" |  safeHTML }}
+            </div>
           {{ end }}
           <hr>
           {{ .Content }}

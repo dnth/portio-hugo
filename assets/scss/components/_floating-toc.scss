@@ -1,0 +1,39 @@
+.floating-toc {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  width: 450px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 15px;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  h3 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 8px;
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
