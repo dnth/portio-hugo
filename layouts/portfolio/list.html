@@ -28,7 +28,7 @@
 			<h3 class="breadCrumb__title">Projects</h3>
 			<nav aria-label="breadcrumb" class="d-flex justify-content-center">
 			  <ol class="breadcrumb align-items-center">
-			   Showing all my portfolio projects.
+				All my projects, listed from latest to oldest.
 			  </ol>
 			</nav>
 		  </div>
@@ -36,26 +36,37 @@
 	  </div>
 </header>
 
-<section class="section blog-page">
+<section class="section portfolio" id="portfolio">
 	<div class="container">
 		<div class="row">
-			{{ range .Paginator.Pages }}
-			<div class="col-lg-5">
-				<div class="blog-page__item">
-					<div class="blog-page__item-thumb">
+			<div class="col-12">
+				<div class="portfolio-item-grid">
+					{{ range .Paginator.Pages }}
+					<div class="portfolio-item">
 						<a href="{{ .Permalink }}">
-							<img src="{{ .Params.featureImage | absURL }}" alt="post-image">
+							<img src="{{ .Params.featureImage | absURL }}" class="portfolio-item-thumb" alt="portfolio-thumb" />
 						</a>
+						<div class="portfolio-item-content">
+							<span class="small">{{ .Date.Format "January 2, 2006" }}</span>
+							<span>{{ .Params.service }}</span>
+							<h3 class="mb-0">
+								<a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
+							</h3>
+							{{ if .Params.categories }}
+							<div class="portfolio-item-tags-categories">
+								{{ range .Params.categories }}
+								<a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="tag-category">{{ . }}</a>
+								{{ end }}
+							</div>
+							{{ end }}
+							<a class="see-more-btn" href="{{ .Permalink }}">See details</a>
+						</div>
 					</div>
-					<span class="small">{{ .PublishDate.Format "January 2, 2006" }}</span>
-						<h5 class="mb-0">
-							<a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
-						</h5>
+					{{ end }}
 				</div>
 			</div>
-			{{ end }}
-			{{ partial "pagination" .}}
 		</div>
+		{{ partial "pagination" .}}
 	</div>
 </section>
 
