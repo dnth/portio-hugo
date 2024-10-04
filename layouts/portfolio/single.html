@@ -81,6 +81,7 @@
         <div class="singleBlog__content">
           {{ if .Params.toc }}
             <h3>Table of Contents</h3>
+            {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" | replaceRE "<a" "<a class=\"toc-link\"" | safeHTML }}
             <div id="floating-toc" class="floating-toc">
               <div id="toc-handle" class="toc-handle">☰ Table of Contents</div>
               {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" | replaceRE "<a" "<a class=\"toc-link\"" | safeHTML }}
