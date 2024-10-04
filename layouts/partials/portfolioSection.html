@@ -14,20 +14,22 @@
       <div class="row">
         <div class="col-12">
           <div class="portfolio-item-grid">
-            {{ range first 6 (where $.Site.RegularPages "Type" "portfolio") }}
-            <div class="portfolio-item">
-              <a href="{{ .Permalink }}">
-                <img src="{{ .Params.featureImage }}" class="portfolio-item-thumb" alt="portfolio-thumb" />
-              </a>
-              <div class="portfolio-item-content">
-                <span class="small">{{ .PublishDate.Format "January 2, 2006" }}</span>
-                <span>{{ .Params.service }}</span>
-                <h3 class="mb-0">
-                  <a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
-                </h3>
-                <a class="see-more-btn" href="{{ .Permalink }}">See details</a>
+            {{ range .projects }}
+              {{ with $.Site.GetPage .url }}
+              <div class="portfolio-item">
+                <a href="{{ .Permalink }}">
+                  <img src="{{ .Params.featureImage }}" class="portfolio-item-thumb" alt="portfolio-thumb" />
+                </a>
+                <div class="portfolio-item-content">
+                  <span class="small">{{ .Date.Format "January 2, 2006" }}</span>
+                  <span>{{ .Params.service }}</span>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
+                  </h3>
+                  <a class="see-more-btn" href="{{ .Permalink }}">See details</a>
+                </div>
               </div>
-            </div>
+              {{ end }}
             {{ end }}
           </div>
         </div>
