@@ -8,6 +8,7 @@
   border-radius: 4px;
   padding: 15px;
   max-height: 80vh;
+  user-select: none;
   overflow-y: auto;
 
   h3 {
@@ -50,4 +51,18 @@
   padding-right: 8px;
   border-radius: 8px;
   transition: all 0.1s ease;
+}
+
+.toc-handle {
+  cursor: move; /* Fallback for older browsers */
+  cursor: grab;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+  margin: -10px -10px 10px -10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.toc-handle:active {
+  cursor: grabbing;
 }
