@@ -150,3 +150,8 @@
 </section>
 
 {{ end }}
+
+{{ define "scripts" }}
+  {{ $tocHighlight := resources.Get "js/toc-highlight.js" | minify | fingerprint }}
+  <script src="{{ $tocHighlight.RelPermalink }}" integrity="{{ $tocHighlight.Data.Integrity }}"></script>
+{{ end }}
