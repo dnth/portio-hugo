@@ -26,6 +26,13 @@
                   <h3 class="mb-0">
                     <a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
                   </h3>
+                  {{ if .Params.categories }}
+                  <div class="portfolio-item-tags-categories">
+                    {{ range .Params.categories }}
+                    <span class="tag-category">{{ . }}</span>
+                    {{ end }}
+                  </div>
+                  {{ end }}
                   <a class="see-more-btn" href="{{ .Permalink }}">See details</a>
                 </div>
               </div>

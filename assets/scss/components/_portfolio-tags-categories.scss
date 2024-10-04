@@ -1,0 +1,16 @@
+.portfolio-item-tags-categories {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .portfolio-item-tags-categories .tag-category {
+    display: inline-block;
+    background-color:$primary;
+    color: $white;
+    padding: 6px 12px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 80px;
+    font-size: 0.8em;
+  }
