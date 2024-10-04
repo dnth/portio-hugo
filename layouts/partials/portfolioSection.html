@@ -29,7 +29,7 @@
                   {{ if .Params.categories }}
                   <div class="portfolio-item-tags-categories">
                     {{ range .Params.categories }}
-                    <span class="tag-category">{{ . }}</span>
+                    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="tag-category">{{ . }}</a>
                     {{ end }}
                   </div>
                   {{ end }}
