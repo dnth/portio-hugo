@@ -3,13 +3,14 @@
   top: 300px;
   left: 20px;
   width: 350px;
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
+  background-color: rgba(248, 249, 250, 0.85); // Make background semi-transparent
+  border: 1px solid rgba(222, 226, 230, 0.85); // Make border semi-transparent
   border-radius: 4px;
   padding: 15px;
   max-height: 80vh;
   user-select: none;
   overflow-y: auto;
+  z-index: 1000;
 
   h3 {
     margin-top: 0;
@@ -42,7 +43,7 @@
 .floating-toc .toc-link.active {
   font-weight: bold !important;
   color: $primary !important;
-  background-color: #d6d5d5 !important;
+  background-color: rgba(214, 213, 213, 0.85) !important; // Make active link background semi-transparent
 }
 
 .floating-toc .toc-link {
@@ -57,8 +58,8 @@
   cursor: move; /* Fallback for older browsers */
   cursor: grab;
   padding: 5px;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ddd;
+  background-color: rgba(240, 240, 240, 0.85); // Make handle background semi-transparent
+  border-bottom: 1px solid rgba(221, 221, 221, 0.85); // Make handle border semi-transparent
   margin: -10px -10px 10px -10px;
   border-radius: 5px 5px 0 0;
 }
