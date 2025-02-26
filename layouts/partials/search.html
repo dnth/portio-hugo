@@ -1,7 +1,7 @@
 {{ $searchJS := resources.Get "js/search.js" }}
 <script src="{{ $searchJS.RelPermalink }}"></script>
 
-<div class="search-container position-relative">
+<div class="search-container position-relative w-100">
   <div class="search-input-wrapper position-relative">
     <i class="fa fa-search search-icon"></i>
     <input type="text" id="search-input" class="form-control" placeholder="Search blogs and projects..." autocomplete="off">
@@ -21,7 +21,7 @@
 .search-container {
   width: 100%;
   max-width: 100%;
-  padding: 0 15px;
+  padding: 0;
 }
 
 /* Search Input Wrapper */
