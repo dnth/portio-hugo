@@ -6,8 +6,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="btn-group nav">
-                    <a href="#{{.tab1Target}}" class="btn btn-primary active" data-toggle="tab" onclick="scrollToTop()">{{ .tab1Name }}</a>
-                    <a href="#{{.tab2Target}}" class="btn btn-primary" data-toggle="tab" onclick="scrollToTop()">{{ .tab2Name }}</a>
+                    <a href="#{{.tab1Target}}" class="btn btn-primary active" data-toggle="tab" onclick="handleTabClick('{{.tab1Target}}')">{{ .tab1Name }}</a>
+                    <a href="#{{.tab2Target}}" class="btn btn-primary" data-toggle="tab" onclick="handleTabClick('{{.tab2Target}}')">{{ .tab2Name }}</a>
                 </div>
                 <br>
                 <div class="resume__heading">
@@ -47,6 +47,19 @@
 <script>
 function scrollToTop() {
     document.getElementById('resume').scrollIntoView({ behavior: 'smooth' });
+}
+
+function handleTabClick(tabId) {
+    // First activate the tab (this happens automatically with Bootstrap but we need to wait)
+    setTimeout(function() {
+        // On mobile devices, scroll to the tab content
+        if (window.innerWidth < 768) {
+            document.getElementById(tabId).scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // On desktop, scroll to the top of the section
+            scrollToTop();
+        }
+    }, 50); // Small delay to ensure tab is activated
 }
 </script>
 {{ end }}
