@@ -5,15 +5,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
+                <div class="btn-group nav">
+                    <a href="#{{.tab1Target}}" class="btn btn-primary active" data-toggle="tab" onclick="scrollToTop()">{{ .tab1Name }}</a>
+                    <a href="#{{.tab2Target}}" class="btn btn-primary" data-toggle="tab" onclick="scrollToTop()">{{ .tab2Name }}</a>
+                </div>
+                <br>
                 <div class="resume__heading">
                     <div class="text-light">
                         <span class="top-title pre-line">{{ .topTitle }}</span>
                         {{ .title | markdownify }}
-                    </div>
-
-                    <div class="btn-group nav mt-5">
-                        <a href="#{{.tab1Target}}" class="btn btn-primary active" data-toggle="tab">{{ .tab1Name }}</a>
-                        <a href="#{{.tab2Target}}" class="btn btn-primary" data-toggle="tab">{{ .tab2Name }}</a>
                     </div>
                 </div>
             </div>
@@ -43,5 +43,11 @@
         </div>
     </div>
 </section>
+
+<script>
+function scrollToTop() {
+    document.getElementById('resume').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 {{ end }}
 {{ end }}
