@@ -5,25 +5,30 @@
     </a>
     <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-      <ul class="nav navbar-nav main-navigation my-0 mx-auto">
-        {{ $menu := .Site.Menus.main }}
-        {{ range $index, $element := $menu }}
-        <li class="nav-item">
-          <a href="{{ $.Site.BaseURL }}{{ .URL }}"
-            class="nav-link text-dark text-sm-center p-2 {{ if $.IsHome }}scroll{{ end }}">{{ .Name }}</a>
-        </li>
-        {{ end }}
-      </ul>
-      <div class="navbar-nav">
-        <a href="{{ "contact" | absURL }}" class="btn btn-primary btn-zoom hire_button">Let's Talk</a>
+    
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="d-flex flex-column w-100">
+        <!-- Navigation Row -->
+        <div class="d-flex justify-content-between align-items-center">
+          <ul class="nav navbar-nav main-navigation my-0">
+            {{ $menu := .Site.Menus.main }}
+            {{ range $index, $element := $menu }}
+            <li class="nav-item">
+              <a href="{{ $.Site.BaseURL }}{{ .URL }}"
+                class="nav-link text-dark text-sm-center p-2 {{ if $.IsHome }}scroll{{ end }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+          </ul>
+          <div class="navbar-nav">
+            <a href="{{ "contact" | absURL }}" class="btn btn-primary btn-zoom hire_button nowrap">Let's Talk</a>
+          </div>
+        </div>
+        <!-- Search Row -->
+        <div class="search-row">
+          {{ partial "search.html" . }}
+        </div>
       </div>
-       
-
     </div>
   </div>
 </nav>
