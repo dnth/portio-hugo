@@ -55,3 +55,24 @@ VERSION:	1.0.0
 @import "components/portfolio-tags-categories";
 
 @import "components/terminal";
+
+.search-row {
+  transition: all 0.3s ease;
+  max-height: 50px;
+  opacity: 1;
+  position: relative;
+  
+  &.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    visibility: hidden;
+  }
+
+  .search-results {
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+    overflow: visible;
+  }
+}

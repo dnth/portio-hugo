@@ -58,12 +58,24 @@ $(document).ready(function () {
   PageLoad();
 
   // change-navigation-color
+  let lastScrollTop = 0;
   $(window).scroll(function () {
-    if ($(document).scrollTop() > 200) {
+    let st = $(document).scrollTop();
+    if (st > 200) {
       $(".navbar").addClass("nav__color__change");
     } else {
       $(".navbar").removeClass("nav__color__change");
     }
+
+    // Hide/show search bar based on scroll direction
+    if (st > lastScrollTop && st > 100) {
+      // Scrolling down
+      $(".search-row-toggle").addClass("hidden");
+    } else {
+      // Scrolling up
+      $(".search-row-toggle").removeClass("hidden");
+    }
+    lastScrollTop = st;
   });
 
   // Smooth scrolling
