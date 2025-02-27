@@ -151,4 +151,11 @@
   </div>
 </section>
 
+{{ partial "chat-llm.html" . }}
+
+{{ end }}
+
+{{ define "scripts" }}
+  {{ $chatLLM := resources.Get "js/chat-llm.js" | minify | fingerprint }}
+  <script src="{{ $chatLLM.RelPermalink }}" integrity="{{ $chatLLM.Data.Integrity }}"></script>
 {{ end }}

@@ -149,9 +149,14 @@
   </div>
 </section>
 
+{{ partial "chat-llm.html" . }}
+
 {{ end }}
 
 {{ define "scripts" }}
   {{ $tocHighlight := resources.Get "js/toc-highlight.js" | minify | fingerprint }}
   <script src="{{ $tocHighlight.RelPermalink }}" integrity="{{ $tocHighlight.Data.Integrity }}"></script>
+  
+  {{ $chatLLM := resources.Get "js/chat-llm.js" | minify | fingerprint }}
+  <script src="{{ $chatLLM.RelPermalink }}" integrity="{{ $chatLLM.Data.Integrity }}"></script>
 {{ end }}

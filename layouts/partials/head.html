@@ -26,6 +26,14 @@
   {{ "<!--Favicon-->" | safeHTML }}
   <link rel="shortcut icon" href="{{ "images/favicon-purple.ico" | absURL }}" type="image/x-icon" />
   <link rel="icon" href="{{ "images/favicon.gif" | absURL }}" type="image/x-icon" />
+  
+  {{ with .Site.Params.arliaiApiKey }}
+  {{ "<!-- Arliai API Key -->" | safeHTML }}
+  <script>
+    window.arliaiApiKey = "{{ . }}";
+  </script>
+  {{ end }}
+  
   {{ with site.Params.googleAnalytics }}
   {{ "<!-- Google Analytics -->" | safeHTML }}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>

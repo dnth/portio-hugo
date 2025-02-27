@@ -56,6 +56,8 @@ VERSION:	1.0.0
 
 @import "components/terminal";
 
+@import "components/chat-llm";
+
 .search-row {
   transition: all 0.3s ease;
   max-height: 50px;
