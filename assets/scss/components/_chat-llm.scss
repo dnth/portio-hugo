@@ -60,6 +60,26 @@
   }
 }
 
+.chat-llm-social-buttons {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 1px solid #eee;
+  
+  .btn {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
 .chat-llm-close {
   background: none;
   border: none;

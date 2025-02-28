@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatMessages = document.getElementById('chat-llm-messages');
   const chatInput = document.getElementById('chat-llm-input');
   const chatSend = document.getElementById('chat-llm-send');
+  const whatsappButton = document.querySelector('.chat-llm-social-buttons a[href*="whatsapp"]');
+  const telegramButton = document.querySelector('.chat-llm-social-buttons a[href*="telegram"]');
   
   // Check if elements exist (only on pages with the chat component)
   if (!chatContainer) return;
@@ -51,6 +53,21 @@ document.addEventListener('DOMContentLoaded', function() {
   chatClose.addEventListener('click', function() {
     chatBox.style.display = 'none';
   });
+  
+  // Track social button clicks
+  if (whatsappButton) {
+    whatsappButton.addEventListener('click', function() {
+      console.log('WhatsApp button clicked');
+      // Optional: Add analytics tracking here
+    });
+  }
+  
+  if (telegramButton) {
+    telegramButton.addEventListener('click', function() {
+      console.log('Telegram button clicked');
+      // Optional: Add analytics tracking here
+    });
+  }
   
   // Send message on Enter key (but allow Shift+Enter for new line)
   chatInput.addEventListener('keydown', function(e) {
@@ -184,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const lastUserMessage = messages.filter(m => m.role === 'user').pop().content.toLowerCase();
       
       if (lastUserMessage.includes('hello') || lastUserMessage.includes('hi')) {
-        return "Hello! How can I help you with information about this article?";
+        return "Hello! I'm an LLM assistant. How can I help you with information about this article?";
       } else if (lastUserMessage.includes('thank')) {
         return "You're welcome! Feel free to ask if you have any other questions.";
       } else if (lastUserMessage.includes('what is this article about')) {
