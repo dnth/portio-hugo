@@ -88,10 +88,30 @@ Button Override
 	padding: 0 !important;
 	padding-bottom: 10px !important;
 }
+
+// Hero section social buttons
+.hero .social-share {
+	margin-top: 15px;
+}
+
+.hero .social-share .share-icons {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.hero .social-share .share-icons li {
+	margin-right: 0;
+	padding-bottom: 0 !important;
+}
  
 .social-share .share-btn {
-	padding: 0.5em;
-	width: 8.3em;
+	padding: 0.6em;
+	width: auto;
+	min-width: 2.5em;
+	font-size: 1.0em;
 }
  
 .social-share-nav .share-btn h3{
@@ -169,7 +189,8 @@ ul.share-icons li > * .label {
 .share-btn.email       { background: #444444; }
 .share-btn.whatsapp    { background: #25d366; }
 .share-btn.github      { background: #000000; }
-.share-btn.x           { background: #000000; } 
+.share-btn.x           { background: #000000; }
+.share-btn.scholar     { background: #4285F4; }
 
 .share-btn.twitter:hover     { background: #4c9ad6; }
 .share-btn.google-plus:hover { background: #c64333; }
@@ -179,4 +200,32 @@ ul.share-icons li > * .label {
 .share-btn.pinterest:hover   { background: #AD0000; }
 .share-btn.reddit:hover      { background: #e54e00; }
 .share-btn.email:hover       { background: #363636; }
-.share-btn.x:hover     		 { background: #1A1A1A; } 
+.share-btn.x:hover     		 { background: #1A1A1A; }
+.share-btn.scholar:hover     { background: #3367D6; }
+
+// Responsive social buttons
+@media (max-width: 768px) {
+  .hero .social-share .share-icons {
+    justify-content: center;
+  }
+  
+  .social-share .share-btn {
+    padding: 0.4em;
+    font-size: 0.8em;
+  }
+  
+  .social-share .share-btn .social-text {
+    display: none; /* Hide text on small screens */
+  }
+  
+  .social-share .share-btn .widget-social__link-icon {
+    margin: 0 auto;
+  }
+}
+
+// For very small screens
+@media (max-width: 480px) {
+  .hero .social-share .share-icons {
+    gap: 5px;
+  }
+} 
